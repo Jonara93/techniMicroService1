@@ -32,11 +32,11 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  login(){
+  login() {
     this._router.navigate(['login']);
   }
 
-  logout(){
-    
+  logout() {
+    this._authService.logout();
   }
 }

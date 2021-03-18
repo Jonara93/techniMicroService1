@@ -4,9 +4,11 @@ import be.technifutur.mUser.dtos.UserDto;
 import be.technifutur.mUser.entities.User;
 import be.technifutur.mUser.services.UserService;
 import be.technifutur.mUser.utils.UserNotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 //@CrossOrigin
@@ -31,5 +33,14 @@ public class UserController {
     @PostMapping
     public void insertUser(@RequestBody User user) {
         this.userService.insertUser(user);
+    }
+
+    @PostMapping("/check")
+    public ResponseEntity<UserDto> getUserByPseudoAndPassword(@RequestBody Map<String, String> values) throws UserNotFoundException {
+        return ResponseEntity.ok(
+                this.userService.getUserByPseudoAndPassword(
+                        values.get("pseudo"), values.get("password")
+                )
+        );
     }
 }

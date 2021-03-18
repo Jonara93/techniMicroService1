@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.formLogin.value)
+    if (this.formLogin.valid)
+      this._authService.login(this.formLogin.value['pseudo'], this.formLogin.value['password'])
   }
 
 }

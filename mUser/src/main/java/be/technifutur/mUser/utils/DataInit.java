@@ -43,6 +43,31 @@ public class DataInit implements InitializingBean {
                                     .zip("4242")
                                     .build()
                     )
+                    .build(),
+            User.builder()
+                    .firstname("Barbara")
+                    .lastname("Hein")
+                    .pseudo("Baboune")
+                    .email("babs@hot.be")
+                    .password("1234")
+                    .deliveryAddress(
+                            Address.builder()
+                                    .city("Outsiplou")
+                                    .country("Belgique")
+                                    .number("42")
+                                    .street("Rue du Roy")
+                                    .zip("4242")
+                                    .build()
+                    )
+                    .billingAddress(
+                            Address.builder()
+                                    .city("Outsiplou")
+                                    .country("Belgique")
+                                    .number("42")
+                                    .street("Rue du Roy")
+                                    .zip("4242")
+                                    .build()
+                    )
                     .build()
     );
 
