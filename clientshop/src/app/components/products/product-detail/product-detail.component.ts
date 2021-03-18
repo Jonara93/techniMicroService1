@@ -53,7 +53,7 @@ export class ProductDetailComponent implements OnInit {
         isPaid: false,
         productId: this.product.id,
         productQuantity: this.form.get('quantity').value,
-        userId: this._authService.getCurrentUser().id
+        userId: this._authService.userConnected.value.id
       } as Order
     ).subscribe(
       order => {

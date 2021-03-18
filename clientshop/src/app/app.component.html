@@ -3,9 +3,14 @@
     <h3>Micro Services Client</h3>
     <p>Votre site spécialisé dans l'emballage</p>
     <div>
-      <button class="btn btn-primary mt-1 mr-2" routerLink="profil-user">Profil</button>
-      <button class="btn btn-primary mt-1 mr-2" routerLink="login">Login</button>
-      <button class="btn btn-danger mt-1">Logout</button>
+      <ng-container *ngIf="user != null">
+        <button class="btn btn-primary mt-1 mr-2" routerLink="profil-user">Profil de {{user.pseudo}}</button>
+        <button class="btn btn-danger mt-1" (click)="logout()">Logout</button>
+      </ng-container>
+      <ng-container *ngIf="user == null">
+        <button class="btn btn-primary mt-1 mr-2" (click)="login()">Login</button>
+      </ng-container>
+
     </div>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">

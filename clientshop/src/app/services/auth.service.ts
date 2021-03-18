@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 import { UserService } from './user.service';
@@ -8,18 +9,18 @@ import { UserService } from './user.service';
 })
 export class AuthService {
 
-  userConnected: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  private _userConnected: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
-  constructor(private _userService: UserService) {
-    this._userService.getById(1).subscribe(
-      next => {
-        this.userConnected.next(next);
-      }
-    )
+  constructor(private _userService: UserService,
+    private _httpClient: HttpClient) {
   }
 
-  getCurrentUser(): User {
-    return this.userConnected.value;
+  get userConnected(): BehaviorSubject<User> {
+    return this._userConnected;
+  }
+
+  login(pseudo: string, password: string): void {
+
   }
 
 }

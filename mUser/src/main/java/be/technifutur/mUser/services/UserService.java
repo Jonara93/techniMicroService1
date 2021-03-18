@@ -36,6 +36,13 @@ public class UserService {
         return this.mapper.toUserDto(user);
     }
 
+    public UserDto getUserByPseudoAndPassword(String pseudo, String password) throws UserNotFoundException {
+        User user = this.userRepository.findByPseudoAndPassword(pseudo, password).orElseThrow(
+                () -> new UserNotFoundException("User " + pseudo + " n'a pas pu être trouvé")
+        );
+        return this.mapper.toUserDto(user);
+    }
+
     public void insertUser(User user) {
         this.userRepository.save(user);
     }
