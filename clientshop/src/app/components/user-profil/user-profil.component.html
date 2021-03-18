@@ -1,0 +1,41 @@
+<div class="card col-4 mx-auto mt-2 bg-info text-perso">
+  <div class="card-body">
+    <h5 class="card-title header-text">{{user?.lastname}} {{user?.firstname}}</h5>
+    <p class="card-text"><span style="font-weight: 700;">Email :</span> {{user?.email}}</p>
+    <p class="card-text"><span style="font-weight: 700;">Pseudo :</span> {{user?.pseudo}}</p>
+    <p class="card-text" style="white-space: pre-line"><span style="font-weight: 700;">Adresse de livraison :</span>
+      {{user?.deliveryAddress | address}}</p>
+    <p class="card-text" style="white-space: pre-line"><span style="font-weight: 700;">Adresse de facturation : </span>
+      {{user?.billingAddress | address}}</p>
+  </div>
+</div>
+
+<table class="table table-striped mt-2">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date de commande</th>
+      <th>Id produit commandé</th>
+      <th>Quantité du produit commandé</th>
+      <th>Transporteur</th>
+      <th>Payé</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of orders" class="hover">
+      <td>{{o?.id}}</td>
+      <td>{{o?.orderDate | date : 'dd/MM/YYYY - HH:mm'}}</td>
+      <td>{{o?.productId}}</td>
+      <td>{{o?.productQuantity}}</td>
+      <td>
+        <span *ngIf="o.deliveryCompany">{{o?.deliveryCompany}}</span>
+        <span *ngIf="!o.deliveryCompany">/</span>
+      </td>
+      <td>
+        <p *ngIf="o?.isPaid; then thenBlock else elseBlock"></p>
+        <ng-template #thenBlock><span class=" btn btn-success" (click)="orderDetail(o)">Payé</span></ng-template>
+        <ng-template #elseBlock><span class=" btn btn-warning" (click)="orderDetail(o)">A payer</span></ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Libelle</th>
+      <th>Prix</th>
+      <th>Quantité en stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products" class="hover" (click)="productDetail(p.id)" [hidden]="p?.stockQuantity == 0">
+      <td>{{p.name}}</td>
+      <td>{{p.price}} EUR</td>
+      <td>{{p.stockQuantity}}</td>
+    </tr>
+  </tbody>
+</table>
+<router-outlet></router-outlet>

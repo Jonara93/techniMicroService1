@@ -1,0 +1,21 @@
+<h3 style="text-align: center;">Résumé de la commande</h3>
+<div class="card col-3 mx-auto">
+  <div class="card-header">
+    <p class="text-secondary">Commande #{{order?.id}}</p>
+    <p>Créée le {{order?.orderDate | date : 'dd MMM y à HH:mm:ss'}}</p>
+    <p>Pigeon : {{user?.pseudo}} </p>
+  </div>
+  <img class="card-img-top" src="https://picsum.photos/id/25{{product?.id}}/286/180" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Détail de {{product?.name}}</h5>
+    <p>Prix unitaire : {{product?.price | number:'0.2-2'}} EUR</p>
+    <p>Quantité acheté : {{order?.productQuantity}}</p>
+    <p>Prix total : {{(product?.price * order?.productQuantity) | number:'0.2-2'}} EUR</p>
+    <p>Transporteur : <span *ngIf="order?.deliveryCompany">{{order?.deliveryCompany}}</span>
+      <span *ngIf="!order?.deliveryCompany">/</span></p>
+  </div>
+
+  <button class="btn btn-primary mb-2" (click)="payOrder()" *ngIf="!order?.isPaid">
+    Aller vers le payement
+  </button>
+</div>

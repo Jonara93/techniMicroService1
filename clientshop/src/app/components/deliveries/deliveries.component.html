@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date de la commande</th>
+      <th>Date de livraison</th>
+      <th>Id de la commande</th>
+      <th>Transporteur</th>
+      <th>Prix de livraison</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of deliveries" class="hover">
+      <td>{{d?.id}}</td>
+      <td>{{d?.creationDate | date : 'dd MMMM YYYY'}}</td>
+      <td>{{d?.estimatedDeliveryDate | date : 'dd MMMM YYYY'}}</td>
+      <td>{{d?.orderId}}</td>
+      <td>{{d?.deliverySupplier}}</td>
+      <td>{{d?.deliveryprice| currency : 'EUR'}}</td>
+    </tr>
+  </tbody>
+</table>

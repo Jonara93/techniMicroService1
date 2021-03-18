@@ -1,0 +1,44 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: mApiGateaway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+      routes:
+        - id: products
+          uri: lb://MPRODUIT/
+          predicates:
+            - Path=/products/**
+        - id: orders
+          uri: lb://MCOMMANDE/
+          predicates:
+            - Path=/orders/**
+        - id: payments
+          uri: lb://MPAYEMENT/
+          predicates:
+            - Path=/payments/**
+        - id: deliveries
+          uri: lb://MLIVRAISON/
+          predicates:
+            - Path=/deliveries/**
+        - id: users
+          uri: lb://MUSER/
+          predicates:
+            - Path=/users/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9102/eureka/
+    fetch-registry: true

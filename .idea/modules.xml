@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mUser/mUser.iml" filepath="$PROJECT_DIR$/mUser/mUser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mcommande/mcommande.iml" filepath="$PROJECT_DIR$/mcommande/mcommande.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mlivraison/mlivraison.iml" filepath="$PROJECT_DIR$/mlivraison/mlivraison.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mpayement/mpayement.iml" filepath="$PROJECT_DIR$/mpayement/mpayement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mproduit/mproduit.iml" filepath="$PROJECT_DIR$/mproduit/mproduit.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date de commande</th>
+      <th>Id produit commandé</th>
+      <th>Quantité du produit commandé</th>
+      <th>Transporteur</th>
+      <th>Payé</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of orders" class="hover">
+      <td>{{o?.id}}</td>
+      <td>{{o?.orderDate | date : 'dd/MM/YYYY - HH:mm'}}</td>
+      <td>{{o?.productId}}</td>
+      <td>{{o?.productQuantity}}</td>
+      <td>
+        <span *ngIf="o.deliveryCompany">{{o?.deliveryCompany}}</span>
+        <span *ngIf="!o.deliveryCompany">/</span>
+      </td>
+      <td>
+        <p *ngIf="o?.isPaid; then thenBlock else elseBlock"></p>
+        <ng-template #thenBlock><span class=" btn btn-success" (click)="orderDetail(o)">Payé</span></ng-template>
+        <ng-template #elseBlock><span class=" btn btn-warning" (click)="orderDetail(o)">A payer</span></ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

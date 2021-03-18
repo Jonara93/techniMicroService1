@@ -1,0 +1,18 @@
+<div class="card col-3">
+  <img class="card-img-top" src="https://picsum.photos/id/25{{product?.id}}/286/180" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Détail de {{product?.name}}</h5>
+    <p>Prix : {{product?.price}} EUR</p>
+    <p>Quantitée disponible : {{product?.stockQuantity}}</p>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="quantity">Quantitée souhaitée
+          <input type="number" id="quantity" formControlName="quantity" min="1" max="{{product?.stockQuantity}}">
+        </label>
+      </div>
+    </form>
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="createOrder()">
+      Commander
+    </button>
+  </div>
+</div>

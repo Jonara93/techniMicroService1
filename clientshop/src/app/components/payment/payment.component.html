@@ -1,0 +1,25 @@
+<h3 style="text-align: center;">Paiement de la commande #{{data?.orderId}}</h3>
+<div class="card col-3 mx-auto">
+  <div class="card-body">
+    <p>A payer : {{data?.totalPrice}} EUR</p>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="cardNumber">Numéro de compte en banque :
+          <input type="text" id="cardNumber" formControlName="cardNumber">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Choix du transporteur :
+          <select formControlName="deliverySupplier" id="deliverySupplier">
+            <option value="BPOST">Bpost : 50€ de livraison, 7 jours de délai </option>
+            <option value="DHL">DHL : 150€ de livraison, 3 jours de délai </option>
+            <option value="DPD">DPD : 75€ de livraison, 5 jours de délai </option>
+          </select>
+        </label>
+      </div>
+    </form>
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="validatePayment()">
+      Valider le payement
+    </button>
+  </div>
+</div>

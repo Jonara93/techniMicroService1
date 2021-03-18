@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mUser" />
+        <module name="mproduit" />
+        <module name="mpayement" />
+        <module name="api-gateway" />
+        <module name="mlivraison" />
+        <module name="eureka-server" />
+        <module name="mcommande" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="11" />
+      <module name="eureka-server" target="11" />
+      <module name="mcommande" target="11" />
+      <module name="mlivraison" target="11" />
+      <module name="mpayement" target="11" />
+      <module name="mproduit" target="11" />
+      <module name="mUser" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="mUser" options="-parameters" />
+      <module name="mcommande" options="-parameters" />
+      <module name="mlivraison" options="-parameters" />
+      <module name="mpayement" options="-parameters" />
+      <module name="mproduit" options="-parameters" />
+    </option>
+  </component>
+</project>
